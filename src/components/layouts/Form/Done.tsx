@@ -101,7 +101,7 @@ export default function Done({
           )}
         </div>
 
-        <div className="flex flex-col gap-4 md:flex-row">
+        <div className="flex w-full flex-col gap-4 md:flex-row">
           <Button onClick={onConvertMoreImages} variant="secondary">
             <Undo className="mr-2 inline-block" />
             Back

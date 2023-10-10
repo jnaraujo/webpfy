@@ -131,12 +131,18 @@ function Upload({ convert }: Props) {
             </label>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <Button variant="link" onClick={() => inputRef.current?.click()}>
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              variant="link"
+              onClick={() => inputRef.current?.click()}
+              className="w-fit underline"
+            >
               add more images
             </Button>
 
-            <Button onClick={handleConvert}>Convert</Button>
+            <Button className="w-full" onClick={handleConvert}>
+              Convert
+            </Button>
           </div>
         </div>
       )}
