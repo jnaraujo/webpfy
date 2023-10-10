@@ -1,4 +1,3 @@
-import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
 interface Props {
