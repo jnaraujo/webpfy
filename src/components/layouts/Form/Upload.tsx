@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Slider } from "@/components/ui/slider";
 import { useFilesStore } from "@/stores/files-store";
+import { uploadStore } from "@/stores/upload-store";
 import { Trash2 } from "lucide-react";
 import { memo, useMemo, useRef, useState } from "react";
 
@@ -13,7 +14,7 @@ interface Props {
 function Upload({ convert }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { setFiles, files, removeFile } = useFilesStore();
-  const [quality, setQuality] = useState(95);
+  const { quality, setQuality } = uploadStore();
 
   function handleDrag(e: React.DragEvent<HTMLFormElement>) {
     e.preventDefault();
