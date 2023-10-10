@@ -11,7 +11,7 @@ interface Props {
   convert: (quality: number) => void;
 }
 
-function Upload({ convert }: Props) {
+export default function Upload({ convert }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const { setFiles, files, removeFile } = useFilesStore();
   const { quality, setQuality } = uploadStore();
@@ -110,7 +110,11 @@ function Upload({ convert }: Props) {
         <div className="flex flex-col gap-8">
           <ScrollArea className="mt-8 max-h-[250px]">
             <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
-              {fileView}
+              {files.map((file) => (
+                <File key={file.name} file={file} onClick={removeFile}>
+                  <Trash2 className="text-red-500" />
+                </File>
+              ))}
             </div>
           </ScrollArea>
 
@@ -152,5 +156,3 @@ function Upload({ convert }: Props) {
     </form>
   );
 }
-
-export default memo(Upload);

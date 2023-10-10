@@ -85,29 +85,18 @@ export default function Form() {
     setDownloadUrl("#");
   }, []);
 
-  const Comp = useCallback(() => {
-    switch (status) {
-      case "idle":
-        return <Upload convert={handleConvert} />;
-      case "converting":
-        return <Convert />;
-      case "done":
-        return (
+  return (
+    <section className="flex min-h-[100svh]">
+      <div className="mx-auto flex w-full">
+        {status === "idle" && <Upload convert={handleConvert} />}
+        {status === "converting" && <Convert />}
+        {status === "done" && (
           <Done
             downloadUrl={downloadUrl}
             onConvertMoreImages={onConvertMoreImages}
             convertedFiles={convertedFiles}
           />
-        );
-      default:
-        return <div>:&apos;)</div>;
-    }
-  }, [status, handleConvert, downloadUrl, onConvertMoreImages, convertedFiles]);
-
-  return (
-    <section className="flex min-h-[100svh]">
-      <div className="mx-auto flex w-full">
-        <Comp />
+        )}
       </div>
     </section>
   );

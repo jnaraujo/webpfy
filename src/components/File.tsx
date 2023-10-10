@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo } from "react";
 
 interface Props {
   file: File;
@@ -6,7 +7,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export default function File({ file, onClick, children }: Props) {
+function File({ file, onClick, children }: Props) {
   return (
     <div
       className="group relative flex aspect-square w-20 cursor-pointer items-center justify-center overflow-hidden rounded-lg"
@@ -25,3 +26,5 @@ export default function File({ file, onClick, children }: Props) {
     </div>
   );
 }
+
+export default memo(File, (prev, next) => prev.file === next.file);
