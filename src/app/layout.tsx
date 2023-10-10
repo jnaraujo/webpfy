@@ -8,6 +8,18 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "WebpFy - Webp Image Converter",
   description: "Convert your images to webp format - fast, easy and for free!",
+  keywords: [
+    "webp",
+    "image",
+    "converter",
+    "convert",
+    "png",
+    "jpg",
+    "jpeg",
+    "free",
+    "online",
+    "tool",
+  ],
 };
 
 export default function RootLayout({
