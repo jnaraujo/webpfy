@@ -103,8 +103,10 @@ export default function Form() {
   }, [status, handleConvert, downloadUrl, onConvertMoreImages, convertedFiles]);
 
   return (
-    <div>
-      <Comp />
-    </div>
+    <section className="flex min-h-screen">
+      <div className="mx-auto flex w-full">
+        <Comp />
+      </div>
+    </section>
   );
 }

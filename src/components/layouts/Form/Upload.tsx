@@ -67,7 +67,7 @@ function Upload({ convert }: Props) {
 
   return (
     <form
-      className="flex h-screen w-screen flex-col items-center justify-center rounded-xl"
+      className="flex flex-1 flex-col items-center justify-center rounded-xl"
       encType="multipart/form-data"
       onSubmit={(e) => e.preventDefault()}
       onDragOver={handleDrag}

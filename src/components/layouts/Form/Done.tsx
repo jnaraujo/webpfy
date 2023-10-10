@@ -45,29 +45,31 @@ export default function Done({
   }, [files]);
 
   return (
-    <div className="flex flex-col items-center">
-      <h2 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
-        Your images are ready to download!
-      </h2>
+    <div className="flex flex-1 flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
+          Your images are ready to download!
+        </h2>
 
-      <ScrollArea className="mt-8 max-h-60">
-        <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
-          {fileView}
+        <ScrollArea className="mt-8 max-h-60">
+          <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
+            {fileView}
+          </div>
+        </ScrollArea>
+
+        <div className="mt-20 flex flex-col gap-4 md:flex-row">
+          <Button onClick={onConvertMoreImages} variant="secondary">
+            <Undo className="mr-2 inline-block" />
+            Voltar
+          </Button>
+
+          <Button asChild>
+            <Link href={downloadUrl}>
+              <ArrowDownToLine className="mr-2 inline-block" />
+              Download as zip
+            </Link>
+          </Button>
         </div>
-      </ScrollArea>
-
-      <div className="mt-20 flex flex-col gap-4 md:flex-row">
-        <Button onClick={onConvertMoreImages} variant="secondary">
-          <Undo className="mr-2 inline-block" />
-          Voltar
-        </Button>
-
-        <Button asChild>
-          <Link href={downloadUrl}>
-            <ArrowDownToLine className="mr-2 inline-block" />
-            Download as zip
-          </Link>
-        </Button>
       </div>
     </div>
   );
