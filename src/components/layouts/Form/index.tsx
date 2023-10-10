@@ -78,11 +78,10 @@ export default function Form() {
     [convertImages],
   );
 
-  const reset = useCallback(() => {
+  const onConvertMoreImages = useCallback(() => {
     setStatus("idle");
     setDownloadUrl("#");
-    removeAllFiles();
-  }, [removeAllFiles]);
+  }, []);
 
   const Comp = useCallback(() => {
     switch (status) {
@@ -94,14 +93,14 @@ export default function Form() {
         return (
           <Done
             downloadUrl={downloadUrl}
-            reset={reset}
+            onConvertMoreImages={onConvertMoreImages}
             convertedFiles={convertedFiles}
           />
         );
       default:
         return <div>:&apos;)</div>;
     }
-  }, [status, handleConvert, downloadUrl, reset, convertedFiles]);
+  }, [status, handleConvert, downloadUrl, onConvertMoreImages, convertedFiles]);
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import FileComp from "@/components/File";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ArrowDownToLine, Plus } from "lucide-react";
+import { ArrowDownToLine, Undo } from "lucide-react";
 import Link from "next/link";
 import { useMemo } from "react";
 
@@ -12,11 +12,15 @@ interface ConvertedFile {
 
 interface Props {
   downloadUrl: string;
-  reset: () => void;
+  onConvertMoreImages: () => void;
   convertedFiles: ConvertedFile[];
 }
 
-export default function Done({ downloadUrl, reset, convertedFiles }: Props) {
+export default function Done({
+  downloadUrl,
+  onConvertMoreImages,
+  convertedFiles,
+}: Props) {
   function downloadFile(file: File) {
     const link = document.createElement("a");
     link.href = URL.createObjectURL(file);
@@ -53,15 +57,16 @@ export default function Done({ downloadUrl, reset, convertedFiles }: Props) {
       </ScrollArea>
 
       <div className="mt-20 flex flex-col gap-4 md:flex-row">
+        <Button onClick={onConvertMoreImages} variant="secondary">
+          <Undo className="mr-2 inline-block" />
+          Voltar
+        </Button>
+
         <Button asChild>
           <Link href={downloadUrl}>
             <ArrowDownToLine className="mr-2 inline-block" />
             Download as zip
           </Link>
-        </Button>
-        <Button onClick={reset} variant="secondary">
-          <Plus className="mr-2 inline-block" />
-          Convert more images
         </Button>
       </div>
     </div>
