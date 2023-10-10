@@ -9,7 +9,7 @@ interface Props {
 export default function File({ file, onClick, children }: Props) {
   return (
     <div
-      className="group relative flex aspect-square w-20 items-center justify-center overflow-hidden rounded-lg"
+      className="group relative flex aspect-square w-20 cursor-pointer items-center justify-center overflow-hidden rounded-lg"
       onClick={() => onClick(file)}
     >
       <div className="pointer absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100">
