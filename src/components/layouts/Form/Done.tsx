@@ -1,5 +1,6 @@
 import FileComp from "@/components/File";
-import { ArrowDownToLine } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowDownToLine, Plus } from "lucide-react";
 import Link from "next/link";
 
 interface ConvertedFile {
@@ -37,25 +38,22 @@ export default function Done({ downloadUrl, reset, convertedFiles }: Props) {
             onClick={downloadFile}
             file={new File([file], `${file.name}.webp`)}
           >
-            <ArrowDownToLine className="text-zinc-400" />
+            <ArrowDownToLine className="text-zinc-200" />
           </FileComp>
         ))}
       </div>
 
       <div className="mt-20 flex flex-col gap-4 md:flex-row">
-        <Link
-          href={downloadUrl}
-          className="rounded-lg bg-zinc-100 px-4 py-2 font-bold text-zinc-950 hover:bg-zinc-200"
-        >
-          <ArrowDownToLine className="mr-2 inline-block" />
-          Download as zip
-        </Link>
-        <button
-          onClick={reset}
-          className="rounded-lg border border-zinc-100 px-4 py-2 font-bold text-zinc-100 hover:text-zinc-200"
-        >
+        <Button asChild>
+          <Link href={downloadUrl}>
+            <ArrowDownToLine className="mr-2 inline-block" />
+            Download as zip
+          </Link>
+        </Button>
+        <Button onClick={reset} variant="secondary">
+          <Plus className="mr-2 inline-block" />
           Convert more images
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,4 +1,7 @@
 import File from "@/components/File";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Slider } from "@/components/ui/slider";
 import { useFilesStore } from "@/stores/files-store";
 import { Trash2 } from "lucide-react";
 import { memo, useMemo, useRef, useState } from "react";
@@ -101,40 +104,38 @@ function Upload({ convert }: Props) {
 
       {hasFiles && (
         <div className="flex flex-col gap-8">
-          <div className="mt-8 grid max-h-60 grid-cols-3 gap-4 overflow-y-auto pr-2 md:grid-cols-5">
-            {fileView}
-          </div>
+          <ScrollArea className="mt-8 max-h-60">
+            <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
+              {fileView}
+            </div>
+          </ScrollArea>
 
           <div>
             <label className="text-zinc-400" htmlFor="quality">
               Quality
-              <input
-                type="range"
-                id="quality"
-                name="quality"
-                value={quality}
-                onChange={(e) => setQuality(Number(e.target.value))}
-                min="1"
-                max="100"
-                className="w-full"
-              />
+              <div className="mt-2 flex w-full items-center justify-between gap-2">
+                <Slider
+                  id="quality"
+                  name="quality"
+                  max={100}
+                  step={1}
+                  onValueChange={(value) => setQuality(value[0])}
+                  value={[quality]}
+                  className="w-full"
+                />
+                <span className="flex text-zinc-300">
+                  {quality} <span className="text-zinc-300">%</span>
+                </span>
+              </div>
             </label>
           </div>
 
           <div className="flex flex-col gap-2">
-            <button
-              className="text-zinc-400 underline hover:text-zinc-500"
-              onClick={() => inputRef.current?.click()}
-            >
+            <Button variant="link" onClick={() => inputRef.current?.click()}>
               add more images
-            </button>
+            </Button>
 
-            <button
-              onClick={handleConvert}
-              className="rounded-lg bg-zinc-100 px-4 py-2 font-bold text-zinc-950 hover:bg-zinc-200"
-            >
-              Convert
-            </button>
+            <Button onClick={handleConvert}>Convert</Button>
           </div>
         </div>
       )}
