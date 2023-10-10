@@ -105,7 +105,7 @@ export default function Form() {
   }, [status, handleConvert, downloadUrl, onConvertMoreImages, convertedFiles]);
 
   return (
-    <section className="flex min-h-screen">
+    <section className="flex min-h-[100svh]">
       <div className="mx-auto flex w-full">
         <Comp />
       </div>
