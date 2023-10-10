@@ -1,8 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import Vips from "wasm-vips";
-import JSZip from "jszip";
+import type Vips from "wasm-vips";
 import { useFilesStore } from "@/stores/files-store";
 import Upload from "./Upload";
 import Convert from "./Convert";
@@ -14,7 +13,7 @@ interface ConvertedFile {
 }
 
 export default function Form() {
-  const { files, removeAllFiles } = useFilesStore();
+  const { files } = useFilesStore();
   const [convertedFiles, setConvertedFiles] = useState<ConvertedFile[]>([]);
   const [status, setStatus] = useState<
     "converting" | "done" | "error" | "idle"
@@ -27,6 +26,7 @@ export default function Form() {
   const convertImages = useCallback(
     async (quality: number) => {
       if (!vipsRef.current) {
+        const Vips = (await import("wasm-vips")).default;
         vipsRef.current = await Vips({
           dynamicLibraries: [],
           locateFile: (fileName, _) => fileName,
@@ -54,6 +54,8 @@ export default function Form() {
       );
 
       setConvertedFiles(response);
+
+      const JSZip = (await import("jszip")).default;
 
       const zip = new JSZip();
 

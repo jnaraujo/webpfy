@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import { useFilesStore } from "@/stores/files-store";
 import { uploadStore } from "@/stores/upload-store";
 import { Trash2 } from "lucide-react";
-import { memo, useMemo, useRef, useState } from "react";
+import { memo, useMemo, useRef } from "react";
 
 interface Props {
   convert: (quality: number) => void;
