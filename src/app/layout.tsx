@@ -18,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={clsx("min-h-screen antialiased font-sans", inter.variable)}
+        className={clsx(
+          "min-h-screen bg-zinc-950 font-sans antialiased",
+          inter.variable,
+        )}
       >
         {children}
       </body>
