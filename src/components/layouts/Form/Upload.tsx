@@ -1,11 +1,12 @@
 import File from "@/components/File";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Slider } from "@/components/ui/slider";
 import { useFilesStore } from "@/stores/files-store";
 import { uploadStore } from "@/stores/upload-store";
 import { Trash2 } from "lucide-react";
-import { memo, useMemo, useRef } from "react";
+import { useRef } from "react";
 
 interface Props {
   convert: (quality: number) => void;
@@ -29,6 +30,8 @@ export default function Upload({ convert }: Props) {
     if (target.files && target.files[0]) {
       addFiles(target.files);
     }
+
+    (e.target as any).value = null; // reset input
   }
 
   function handleDrop(e: React.DragEvent<HTMLFormElement>) {
@@ -38,6 +41,8 @@ export default function Upload({ convert }: Props) {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       addFiles(e.dataTransfer.files);
     }
+
+    e.dataTransfer.clearData(); // reset input
   }
 
   function addFiles(fileList: FileList) {
@@ -57,14 +62,6 @@ export default function Upload({ convert }: Props) {
 
   const hasFiles = files.length > 0;
 
-  const fileView = useMemo(() => {
-    return files.map((file) => (
-      <File key={file.name} file={file} onClick={removeFile}>
-        <Trash2 className="text-red-500" />
-      </File>
-    ));
-  }, [files, removeFile]);
-
   return (
     <form
       className="flex flex-1 flex-col items-center justify-center rounded-xl"
@@ -73,9 +70,6 @@ export default function Upload({ convert }: Props) {
       onDragOver={handleDrag}
       onDrop={handleDrop}
     >
-      <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
-        Select your images to convert
-      </h1>
       <label className="flex flex-col items-center justify-center">
         {!hasFiles && (
           <>
@@ -107,8 +101,25 @@ export default function Upload({ convert }: Props) {
       </label>
 
       {hasFiles && (
-        <div className="flex flex-col gap-8">
-          <ScrollArea className="mt-8 max-h-[250px]">
+        <div className="flex flex-col gap-4">
+          <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
+            Select your images to convert
+          </h1>
+
+          <div className="flex h-10 items-center justify-between">
+            <Badge>
+              {files.length} {files.length === 1 ? "image" : "images"} selected
+            </Badge>
+            <Button
+              className="text-red-500"
+              variant="link"
+              onClick={() => setFiles([])}
+            >
+              Remove all
+            </Button>
+          </div>
+
+          <ScrollArea className="max-h-[250px]">
             <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
               {files.map((file) => (
                 <File key={file.name} file={file} onClick={removeFile}>
@@ -118,7 +129,7 @@ export default function Upload({ convert }: Props) {
             </div>
           </ScrollArea>
 
-          <div>
+          <div className="mt-4">
             <label className="text-zinc-400" htmlFor="quality">
               Quality
               <div className="mt-2 flex w-full items-center justify-between gap-2">
