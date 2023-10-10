@@ -73,9 +73,9 @@ export default function Upload({ convert }: Props) {
       <label className="flex flex-col items-center justify-center">
         {!hasFiles && (
           <>
-            <h2 className="text-2xl font-bold text-zinc-200">
-              Upload your image
-            </h2>
+            <h1 className="text-2xl font-bold text-zinc-200">
+              Convert your images to WebP
+            </h1>
             <div className="mt-2 text-center text-zinc-400">
               Drag and drop your image here
               <br />
