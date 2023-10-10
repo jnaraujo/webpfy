@@ -73,6 +73,9 @@ function Upload({ convert }: Props) {
       onDragOver={handleDrag}
       onDrop={handleDrop}
     >
+      <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
+        Select your images to convert
+      </h1>
       <label className="flex flex-col items-center justify-center">
         {!hasFiles && (
           <>
@@ -105,7 +108,7 @@ function Upload({ convert }: Props) {
 
       {hasFiles && (
         <div className="flex flex-col gap-8">
-          <ScrollArea className="mt-8 max-h-60">
+          <ScrollArea className="mt-8 max-h-[250px]">
             <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
               {fileView}
             </div>
