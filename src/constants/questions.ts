@@ -20,14 +20,14 @@ export const questions: {
     q: "Which browsers support WebP?",
     a: `WebP is supported by major web browsers like Google Chrome, Mozilla
     Firefox, Microsoft Edge, and Opera. However, some older browsers may
-    not fully support it, so it&apos;s essential to have fallbacks in
+    not fully support it, so it's essential to have fallbacks in
     place for those cases.`,
   },
   {
     q: "How do I convert images to WebP format?",
-    a: `You can use Webpfy to convert your images to WebP format. It&apos;s
+    a: `You can use Webpfy to convert your images to WebP format. It's
     free, easy, and fast! Just drop your images in the box above and
-    click the &quot;Convert&quot;`,
+    click the "Convert"`,
   },
   {
     q: "What is the difference between lossless and lossy WebP compression?",
