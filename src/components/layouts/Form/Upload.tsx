@@ -72,18 +72,17 @@ function Upload({ convert }: Props) {
       <label className="flex flex-col items-center justify-center">
         {!hasFiles && (
           <>
-            <span className="text-2xl font-bold text-zinc-300">
+            <h2 className="text-2xl font-bold text-zinc-200">
               Upload your image
-            </span>
+            </h2>
             <div className="mt-2 text-center text-zinc-400">
               Drag and drop your image here
               <br />
-              or{" "}
               <button
-                className="text-zinc-100 underline hover:text-zinc-200"
+                className="text-zinc-300 underline hover:text-zinc-200"
                 onClick={() => inputRef.current?.click()}
               >
-                browse
+                or select from your device
               </button>
             </div>
           </>
