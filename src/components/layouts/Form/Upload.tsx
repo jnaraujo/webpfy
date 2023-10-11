@@ -64,7 +64,7 @@ export default function Upload({ convert }: Props) {
 
   return (
     <form
-      className="flex flex-1 flex-col items-center justify-center rounded-xl"
+      className="relative flex flex-1 flex-col items-center justify-center rounded-xl"
       encType="multipart/form-data"
       onSubmit={(e) => e.preventDefault()}
       onDragOver={handleDrag}
@@ -164,6 +164,9 @@ export default function Upload({ convert }: Props) {
           </div>
         </div>
       )}
+
+      <div className="pointer-events-none absolute -right-0 bottom-0 z-[-1] h-[80vh] w-[80vh] translate-x-[40%] translate-y-[30%] rounded-full bg-zinc-300/5 blur-3xl" />
+      <div className="pointer-events-none absolute -left-0 top-0 z-[-1] h-[90vh] w-[90vh] translate-x-[-40%] translate-y-[-30%] rounded-full bg-zinc-300/[1%] blur-3xl" />
     </form>
   );
 }

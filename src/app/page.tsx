@@ -3,7 +3,7 @@ import { questions } from "@/constants/questions";
 
 export default function Home() {
   return (
-    <main className="flex flex-col space-y-4">
+    <main className="flex flex-col space-y-4 overflow-hidden">
       <Form />
 
       <section className="container space-y-4 py-4">
