@@ -34,8 +34,10 @@
     "zustand": "^4.4.3"
   },
   "devDependencies": {
+    "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "lightningcss": "^1.22.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1"
   }

@@ -1,3 +1,5 @@
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -22,8 +24,15 @@ const nextConfig = {
     // https://webpack.js.org/configuration/resolve/#resolveconditionnames
     config.resolve.conditionNames = ["require"];
 
+    config.optimization.minimizer.push(
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.lightningCssMinify,
+      }),
+    );
+
     return config;
   },
+  compress: false,
 };
 
 module.exports = nextConfig;
