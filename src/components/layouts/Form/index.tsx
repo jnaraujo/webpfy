@@ -54,22 +54,26 @@ export default function Form() {
       );
 
       setConvertedFiles(response);
-
-      const JSZip = (await import("jszip")).default;
-
-      const zip = new JSZip();
-
-      response.forEach((file) => {
-        zip.file(`${file.name}.webp`, file.blob);
-      });
-
-      const blob = await zip.generateAsync({ type: "base64" });
-      const url = "data:application/zip;base64," + blob;
-      setDownloadUrl(url);
       setStatus("done");
     },
     [files],
   );
+
+  async function downloadAsZip() {
+    const JSZip = (await import("jszip")).default;
+    const zip = new JSZip();
+    convertedFiles.forEach((file) => {
+      zip.file(`${file.name}.webp`, file.blob);
+    });
+
+    const blob = await zip.generateAsync({ type: "base64" });
+    const url = "data:application/zip;base64," + blob;
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "webpfy-images.zip";
+    link.click();
+  }
 
   const handleConvert = useCallback(
     async (quality: number) => {
@@ -92,7 +96,7 @@ export default function Form() {
         {status === "converting" && <Convert />}
         {status === "done" && (
           <Done
-            downloadUrl={downloadUrl}
+            onClickDownload={downloadAsZip}
             onConvertMoreImages={onConvertMoreImages}
             convertedFiles={convertedFiles}
           />

@@ -2,7 +2,6 @@ import FileComp from "@/components/File";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowDownToLine, TrendingDown, TrendingUp, Undo } from "lucide-react";
-import Link from "next/link";
 import { useMemo } from "react";
 import {
   calculatePercentage,
@@ -17,13 +16,13 @@ interface ConvertedFile {
 }
 
 interface Props {
-  downloadUrl: string;
+  onClickDownload: () => void;
   onConvertMoreImages: () => void;
   convertedFiles: ConvertedFile[];
 }
 
 export default function Done({
-  downloadUrl,
+  onClickDownload,
   onConvertMoreImages,
   convertedFiles,
 }: Props) {
@@ -112,11 +111,9 @@ export default function Done({
             Back
           </Button>
 
-          <Button asChild>
-            <Link href={downloadUrl}>
-              <ArrowDownToLine className="mr-2 inline-block" />
-              Download as zip
-            </Link>
+          <Button onClick={onClickDownload}>
+            <ArrowDownToLine className="mr-2 inline-block" />
+            Download as zip
           </Button>
         </div>
       </div>
