@@ -71,7 +71,7 @@ export default function Done({
           </p>
         </div>
 
-        <ScrollArea className="max-h-[250px]">
+        <ScrollArea className="max-h-[250px] w-full">
           <div className="grid grid-cols-3 gap-4 md:mr-2 md:grid-cols-5">
             {fileView}
           </div>

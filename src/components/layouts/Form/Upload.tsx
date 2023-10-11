@@ -119,7 +119,7 @@ export default function Upload({ convert }: Props) {
             </Badge>
           </div>
 
-          <ScrollArea className="max-h-[250px]">
+          <ScrollArea className="max-h-[250px] w-full">
             <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 md:mr-2">
               {files.map((file) => (
                 <File key={file.name} file={file} onClick={removeFile}>
