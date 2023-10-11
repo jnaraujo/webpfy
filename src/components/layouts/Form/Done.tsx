@@ -60,7 +60,7 @@ export default function Done({
   );
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center">
+    <div className="container flex flex-1 flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-center gap-4">
         <div>
           <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
@@ -72,7 +72,7 @@ export default function Done({
         </div>
 
         <ScrollArea className="max-h-[250px]">
-          <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
+          <div className="grid grid-cols-3 gap-4 md:mr-2 md:grid-cols-5">
             {fileView}
           </div>
         </ScrollArea>

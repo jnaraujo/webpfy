@@ -64,13 +64,13 @@ export default function Upload({ convert }: Props) {
 
   return (
     <form
-      className="relative flex flex-1 flex-col items-center justify-center rounded-xl"
+      className="container relative flex flex-1 flex-col items-center justify-center rounded-xl"
       encType="multipart/form-data"
       onSubmit={(e) => e.preventDefault()}
       onDragOver={handleDrag}
       onDrop={handleDrop}
     >
-      <label className="flex flex-col items-center justify-center">
+      <label className="flex flex-col items-center justify-center text-center">
         {!hasFiles && (
           <>
             <h1 className="text-2xl font-bold text-zinc-200">
@@ -101,26 +101,26 @@ export default function Upload({ convert }: Props) {
       </label>
 
       {hasFiles && (
-        <div className="flex flex-col gap-4">
+        <div className="flex w-full flex-col gap-4 sm:w-fit">
           <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
             Select your images to convert
           </h1>
 
           <div className="flex h-10 items-center justify-between">
-            <Badge>
-              {files.length} {files.length === 1 ? "image" : "images"} selected
-            </Badge>
-            <Button
-              className="text-red-500"
-              variant="link"
+            <button
+              className="text-red-500 hover:text-red-600"
               onClick={() => setFiles([])}
             >
               Remove all
-            </Button>
+            </button>
+
+            <Badge>
+              {files.length} {files.length === 1 ? "image" : "images"} selected
+            </Badge>
           </div>
 
           <ScrollArea className="max-h-[250px]">
-            <div className="mr-2 grid grid-cols-3 gap-4 md:grid-cols-5">
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 md:mr-2">
               {files.map((file) => (
                 <File key={file.name} file={file} onClick={removeFile}>
                   <Trash2 className="text-red-500" />
