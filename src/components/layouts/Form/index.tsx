@@ -19,8 +19,6 @@ export default function Form() {
     "converting" | "done" | "error" | "idle"
   >("idle");
 
-  const [downloadUrl, setDownloadUrl] = useState<string>("#");
-
   const vipsRef = useRef<typeof Vips>();
 
   const convertImages = useCallback(
@@ -86,7 +84,6 @@ export default function Form() {
 
   const onConvertMoreImages = useCallback(() => {
     setStatus("idle");
-    setDownloadUrl("#");
   }, []);
 
   return (
