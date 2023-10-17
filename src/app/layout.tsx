@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "https://webpfy.jnaraujo.com/",
     title: "WebpFy - Webp Image Converter",
     description:
-      "Convert your images to webp format - fast, easy and for free!",
+      "Convert your images to webp format - fast, easy and for free! Runs 100% on the browser - your images never leave your computer.",
     images: [
       {
         url: "https://webpfy.jnaraujo.com/og-image.webp",
