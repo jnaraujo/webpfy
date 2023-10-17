@@ -7,7 +7,7 @@ import {
   calculatePercentage,
   calculateTotalFilesSize,
   formatter,
-} from "./helper";
+} from "../helper";
 import { useFilesStore } from "@/stores/files-store";
 
 interface ConvertedFile {

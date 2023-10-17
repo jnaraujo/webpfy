@@ -3,9 +3,9 @@
 import { useCallback, useRef, useState } from "react";
 import type Vips from "wasm-vips";
 import { useFilesStore } from "@/stores/files-store";
-import Upload from "./Upload";
-import Convert from "./Convert";
-import Done from "./Done";
+import Upload from "./stages/Upload";
+import Convert from "./stages/Convert";
+import Done from "./stages/Done";
 
 interface ConvertedFile {
   name: string;
