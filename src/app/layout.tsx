@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "Convert your images to webp format - fast, easy and for free!",
     images: [
       {
-        url: "/og-image.webp",
+        url: "https://webpfy.jnaraujo.com/og-image.webp",
         width: 1200,
         height: 630,
         alt: "WebpFy - Webp Image Converter",
