@@ -9,6 +9,22 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "WebpFy - Webp Image Converter",
   description: "Convert your images to webp format - fast, easy and for free!",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://webpfy.jnaraujo.com/",
+    title: "WebpFy - Webp Image Converter",
+    description:
+      "Convert your images to webp format - fast, easy and for free!",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "WebpFy - Webp Image Converter",
+      },
+    ],
+  },
   keywords: [
     "webp",
     "image",
