@@ -1,4 +1,4 @@
-import Form from "@/components/layouts/Form";
+import Form from "@/components/Form";
 import { questions } from "@/constants/questions";
 
 export default function Home() {
