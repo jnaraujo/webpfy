@@ -36,7 +36,7 @@ export default function Done({
   }
 
   const files = convertedFiles.map(
-    (file) => new File([file.blob], `${file.name}.webp`),
+    (file) => new File([file.blob], `${file.name}`),
   );
 
   const fileView = useMemo(() => {
@@ -97,11 +97,9 @@ export default function Done({
             </span>
           </div>
           {percentageSaved < 0 && (
-            <>
-              <span className="max-w-[300px] text-center text-zinc-400">
-                You can try to reduce the quality to save more space.
-              </span>
-            </>
+            <span className="max-w-[300px] text-center text-zinc-400">
+              You can try to reduce the quality to save more space.
+            </span>
           )}
         </div>
 
