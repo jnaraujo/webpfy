@@ -12,3 +12,12 @@ export const formatter = Intl.NumberFormat("en", {
   unit: "byte",
   unitDisplay: "narrow",
 });
+
+export async function loadVips() {
+  const Vips = (await import("wasm-vips")).default;
+  return await Vips({
+    dynamicLibraries: [],
+    locateFile: (fileName, _) => fileName,
+    mainScriptUrlOrBlob: "/vips.js",
+  });
+}

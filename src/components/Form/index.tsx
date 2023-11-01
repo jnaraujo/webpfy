@@ -6,6 +6,7 @@ import { useFilesStore } from "@/stores/files-store";
 import Upload from "./stages/Upload";
 import Convert from "./stages/Convert";
 import Done from "./stages/Done";
+import { loadVips } from "./helper";
 
 interface ConvertedFile {
   name: string;
@@ -24,13 +25,9 @@ export default function Form() {
   const convertImages = useCallback(
     async (quality: number) => {
       if (!vipsRef.current) {
-        const Vips = (await import("wasm-vips")).default;
-        vipsRef.current = await Vips({
-          dynamicLibraries: [],
-          locateFile: (fileName, _) => fileName,
-          mainScriptUrlOrBlob: "/vips.js",
-        });
+        vipsRef.current = await loadVips();
       }
+
       const vips = vipsRef.current;
 
       const response = await Promise.all(
