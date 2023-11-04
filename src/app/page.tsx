@@ -8,7 +8,7 @@ export default function Home() {
 
       <section className="container space-y-4 py-4">
         <div className="space-y-1">
-          <h1 className="text-xl font-bold text-zinc-300">
+          <h1 className="text-2xl font-bold text-zinc-200">
             Webpfy - Convert your images to webp format - fast, easy and for
             free!
           </h1>
