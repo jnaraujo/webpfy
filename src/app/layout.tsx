@@ -7,21 +7,22 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "WebpFy - Webp Image Converter",
-  description: "Convert your images to webp format - fast, easy and for free!",
+  title: "WebpFy - Converta suas imagens para o formato webp",
+  description:
+    "Converta suas imagens para o formato webp - rápido, fácil e de graça!",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "pt_BR",
     url: "https://webpfy.jnaraujo.com/",
-    title: "WebpFy - Webp Image Converter",
+    title: "WebpFy - Converta suas imagens para o formato webp",
     description:
-      "Convert your images to webp format - fast, easy and for free! Runs 100% on the browser - your images never leave your computer.",
+      "Converta suas imagens para o formato webp - rápido, fácil e de graça! Roda no navegador, sem instalação.",
     images: [
       {
         url: "https://webpfy.jnaraujo.com/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "WebpFy - Webp Image Converter",
+        alt: "WebpFy - Converta suas imagens para o formato webp",
       },
     ],
   },
@@ -45,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="pt-br" className="dark">
       <head>
         <Script
           defer

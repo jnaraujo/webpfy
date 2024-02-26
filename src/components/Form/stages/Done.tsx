@@ -63,10 +63,10 @@ export default function Done({
       <div className="flex flex-col items-center justify-center gap-4">
         <div>
           <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
-            Your images are ready to download!
+            Suas imagens estão prontas!
           </h1>
           <p className="mt-2 text-center text-zinc-400">
-            Click on the image to download it.
+            Clique na image para baixar
           </p>
         </div>
 
@@ -92,13 +92,13 @@ export default function Done({
             </span>
             <br />
             <span className="text-zinc-400">
-              ( from {formatter.format(totalFileSizeBefore)} to{" "}
+              ( de {formatter.format(totalFileSizeBefore)} para{" "}
               {formatter.format(totalFileSizeAfter)})
             </span>
           </div>
           {percentageSaved < 0 && (
             <span className="max-w-[300px] text-center text-zinc-400">
-              You can try to reduce the quality to save more space.
+              Você pode tentar reduzir a qualidade para economizar mais espaço.
             </span>
           )}
         </div>
@@ -106,12 +106,12 @@ export default function Done({
         <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
           <Button onClick={onConvertMoreImages} variant="secondary">
             <Undo className="mr-2 inline-block" />
-            Back
+            Voltar
           </Button>
 
           <Button onClick={onClickDownload}>
             <ArrowDownToLine className="mr-2 inline-block" />
-            Download as zip
+            Baixar como ZIP
           </Button>
         </div>
       </div>

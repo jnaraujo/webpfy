@@ -74,16 +74,16 @@ export default function Upload({ convert }: Props) {
         {!hasFiles && (
           <>
             <h1 className="text-2xl font-bold text-zinc-200">
-              Convert your images to WebP
+              Converta suas imagens para Webp
             </h1>
             <div className="mt-2 text-center text-zinc-400">
-              Drag and drop your image here
+              Arraste e solte suas imagens aqui
               <br />
               <button
                 className="text-zinc-300 underline hover:text-zinc-200"
                 onClick={() => inputRef.current?.click()}
               >
-                or select from your device
+                ou clique para selecionar
               </button>
             </div>
           </>
@@ -103,7 +103,7 @@ export default function Upload({ convert }: Props) {
       {hasFiles && (
         <div className="flex w-full flex-col gap-4 sm:w-fit">
           <h1 className="mt-8 text-center text-lg font-semibold text-zinc-200 md:text-2xl">
-            Select your images to convert
+            Selecione suas imagens para converter
           </h1>
 
           <div className="flex h-10 items-center justify-between">
@@ -111,11 +111,12 @@ export default function Upload({ convert }: Props) {
               className="text-red-500 hover:text-red-600"
               onClick={() => setFiles([])}
             >
-              Remove all
+              Remover todas
             </button>
 
             <Badge>
-              {files.length} {files.length === 1 ? "image" : "images"} selected
+              {files.length} {files.length === 1 ? "imagem" : "imagens"}{" "}
+              selecionada{files.length > 1 && "s"}
             </Badge>
           </div>
 
@@ -131,7 +132,7 @@ export default function Upload({ convert }: Props) {
 
           <div className="mt-4">
             <label className="text-zinc-400" htmlFor="quality">
-              Quality
+              Qualidade
               <div className="mt-2 flex w-full items-center justify-between gap-2">
                 <Slider
                   id="quality"
@@ -155,11 +156,11 @@ export default function Upload({ convert }: Props) {
               onClick={() => inputRef.current?.click()}
               className="w-fit underline"
             >
-              add more images
+              adicionar mais imagens
             </Button>
 
             <Button className="w-full" onClick={handleConvert}>
-              Convert
+              Converter
             </Button>
           </div>
         </div>

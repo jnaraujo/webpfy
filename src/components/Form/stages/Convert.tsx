@@ -5,7 +5,7 @@ export default function Convert() {
     <div className="flex flex-1 flex-col items-center justify-center">
       <Loader2 size={64} className="animate-spin text-zinc-300" />
       <div className="mt-8 text-center text-zinc-400">
-        Converting your images to webp format...
+        Convertendo suas imagens para o formato webp...
       </div>
     </div>
   );
