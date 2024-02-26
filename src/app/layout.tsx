@@ -51,7 +51,7 @@ export default function RootLayout({
         <Script
           defer
           data-domain="webpfy.jnaraujo.com"
-          src="http://analytics.jnaraujo.com/js/script.js"
+          src="https://analytics.jnaraujo.com/js/script.js"
         />
       </head>
       <body
