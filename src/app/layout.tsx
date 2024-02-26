@@ -49,9 +49,8 @@ export default function RootLayout({
       <head>
         <Script
           defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon={`{"token": "${process.env.NEXT_PUBLIC_CLOUDFLARE_TOKEN}"}`}
-          strategy="afterInteractive"
+          data-domain="webpfy.jnaraujo.com"
+          src="http://plausible-analytics.caprover.jnaraujo.com/js/script.js"
         />
       </head>
       <body
