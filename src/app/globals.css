@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 /* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #5933e1 #8d4444;
-}
-
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 4px;
